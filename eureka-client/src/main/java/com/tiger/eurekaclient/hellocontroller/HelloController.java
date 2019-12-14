@@ -1,4 +1,4 @@
-package com.tiger.eurekaclient.HelloController;
+package com.tiger.eurekaclient.hellocontroller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,9 +18,9 @@ public class HelloController {
 
     @Value("${server.port}")
     String port;
-    @RequestMapping(value = "hello", method = RequestMethod.GET)
+    @RequestMapping(value = "helloclient", method = RequestMethod.GET)
     public  String index(){
-        StringBuffer uriList=new StringBuffer("Hello word"+port+"端口为你服务");
+        StringBuffer uriList=new StringBuffer("Hello word"+port+"端口为你服啊啊啊啊啊啊务啊");
         return  uriList.toString();
 
     }
