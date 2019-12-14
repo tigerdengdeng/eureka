@@ -1,4 +1,4 @@
-package com.tiger.eurekaclient;
+package com.tiger.eurekaclient.HelloController;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

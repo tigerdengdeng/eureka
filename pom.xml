@@ -3,11 +3,14 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-
+    <!--父框架里面的依赖 对所有子框架共享-->
+    <!--父框架-->
     <groupId>newtiger-springcloud</groupId>
     <artifactId>eureka</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <!--spring-boot 依赖-->
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
@@ -15,31 +18,29 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-
+    <!--spring-cloud 依赖-->
     <properties>
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
     </properties>
-
     <dependencies>
-
+        <!--spring-boot-web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
-        <!--            <dependency>-->
-        <!--                <groupId>org.springframework.cloud</groupId>-->
-        <!--                <artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>-->
-        <!--            </dependency>-->
-        <!--            <dependency>-->
-        <!--                <groupId>org.springframework.cloud</groupId>-->
-        <!--                <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
-        <!--            </dependency>-->
+        <!--eureka 剔除服务自我保护模式打开时，已关停节点是会一直显示在 Eureka 首页的
+
+关闭自我保护模式后，由于其默认的心跳周期比较长等原因，要过一会儿才会发现已关停节点被自动踢出了
+
+若想尽快的及时踢出，那就只有修改默认的心跳周期参数了
+
+注册中心eureka-server的配置文件application.properties中修改为-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
+        <!--spring-boot-test 依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -52,11 +53,13 @@
             </exclusions>
         </dependency>
     </dependencies>
+    <!--引入子框架-->
     <modules>
         <module>eureka-client</module>
         <module>eureka-server</module>
         <module>ribbon-consumer</module>
     </modules>
+    <!--控制spring-boot-cloud版本-->
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -68,7 +71,7 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
-
+    <!--maven-->
     <build>
         <plugins>
             <plugin>
@@ -77,5 +80,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
