@@ -3,12 +3,15 @@ package com.tiger.eurekaclient;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @EnableEurekaClient  //启动类EurekaClientApplication.java添加@EnableDiscoveryClient注解以实现Eureka中的DiscoveryClient实现。
 @SpringBootApplication
 //需要开启feign，告诉springboot 我整合了feign
 @EnableFeignClients
+//熔断器
+@EnableHystrix
 /**
  * 创建并注册服务提供者 Eureka Client
  * @EnableEurekaClient和@EnableDiscoveryClient的区别
