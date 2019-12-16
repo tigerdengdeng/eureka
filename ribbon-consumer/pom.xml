@@ -28,6 +28,4 @@
             <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
         </dependency>
     </dependencies>
-
-
 </project>

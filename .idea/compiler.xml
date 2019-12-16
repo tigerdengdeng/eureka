@@ -9,6 +9,7 @@
         <module name="eureka-client" />
         <module name="eureka-server" />
         <module name="ribbon-consumer" />
+        <module name="eureka-zuul" />
       </profile>
     </annotationProcessing>
   </component>
@@ -17,6 +18,7 @@
       <module name="eureka" options="-parameters" />
       <module name="eureka-client" options="-parameters" />
       <module name="eureka-server" options="-parameters" />
+      <module name="eureka-zuul" options="-parameters" />
       <module name="ribbon-consumer" options="-parameters" />
     </option>
   </component>

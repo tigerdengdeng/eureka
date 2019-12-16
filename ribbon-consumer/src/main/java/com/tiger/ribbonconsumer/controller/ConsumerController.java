@@ -30,4 +30,9 @@ public class ConsumerController {
         return  feignInterface.helloConsumer();
 
     }
+
+    @RequestMapping("/aaa")
+    public  String aaa(){
+        return "11";
+    }
 }
